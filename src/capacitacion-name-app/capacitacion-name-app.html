@@ -1,0 +1,44 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="capacitacion-name-app">
+  <template>
+    <p>Test</p>
+    <slot></slot>
+  </template>
+
+  <script>
+    class CapacitacionNameApp extends Polymer.Element {
+      static get is(){
+          return 'capacitacion-name-app';
+         }
+         static get properties(){
+           return {
+             name: {
+               type: String,
+               value: 'saira',
+               reflectToAttribute: true
+             },
+             lastName: {
+               type: String,
+               value: 'Carranza',
+               reflectToAttribute: true
+             },
+             fullname: {
+               type: String,
+               computed: 'imprimirNombre(name, last)',
+               reflectToAttribute: true
+
+
+             }
+           }
+         }
+
+         imprimirNombre (name, lastName){
+           return name+' '+lastName;
+
+         }
+
+    }
+    window.customElements.define(CapacitacionNameApp.is, CapacitacionNameApp);
+  </script>
+</dom-module>
